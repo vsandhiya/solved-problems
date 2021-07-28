@@ -1,0 +1,72 @@
+#####Print the missing alphabets
+
+The program must accept a string S containing only lower case alphabets as the input. The program must print the missing lower case alphabets in string S in alphabetical order as the output. Note: At least one lower case is always missing in the string S.
+
+Input Format
+The input must be in string which can include alphanumeric, number etc.
+
+Output Format
+The output must be in string
+
+Sample Input 0
+interview
+
+Sample Output 0
+abcdfghjklmopqsuxyz
+
+###ANS
+
+user_input=input()
+
+txt_1=list(user_input)
+
+txt_2=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+
+for i in txt_1:
+  
+    if i in txt_2:
+    
+         txt_2.remove(i)
+
+for j in txt_2:
+   
+    print(j,end="")
+
+
+####Print the maximum possible integer
+
+
+The program must accept an integer N as the input. The program must print the maximum possible Integer X which is less than N, but the sum of digits in X is greater than the sum of digits in N. If there is no such integer, the program must print the integer N as it is.
+
+Input Format
+35
+
+Constraints
+none
+
+Output Format
+29
+
+Sample Input 0
+41
+Sample Output 0
+39
+Sample Input 1
+19
+Sample Output 1
+19
+
+###SOLUTION###
+
+n=int(input())
+t=str(n)
+a=t[-1]
+if a!='9':
+   for i in range(n,0,-1):
+      txt_1=str(i)
+      k=txt_1[-1]
+      if k =='9':
+        print(i)
+        break;
+else:
+    print(n)

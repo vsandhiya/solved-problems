@@ -1,0 +1,65 @@
+###To Lower Case 1
+
+Given a string s, return the string after replacing every uppercase letter with the same lowercase letter.
+
+Sample Input 2
+LOVELY
+
+Sample Output 2
+lovely
+
+ANS::
+
+text=input()
+print(text.lower())
+
+
+
+####Detect Capital
+
+Input Format
+USA
+
+Output Format
+true
+
+Sample Input 0
+FlaG
+Sample Output 0
+false
+
+ans::
+
+text=input()
+a=text.upper()
+b=text.lower()
+if text == a:
+    print("true")
+elif text == b:
+    print("true")
+elif text[0] == a[0] and text[1:] == b[1:]:
+    print("true")
+else:
+    print("false")
+
+
+
+####Number of Segments in a String
+
+Sample Input 1
+love live! mu'sic forever
+
+Sample Output 1
+4
+
+ans::
+
+text=input()
+lis=text.split(" ")
+count=0
+for i in range(0,len(lis)):
+    count+=1
+print(count)
+    
+
+

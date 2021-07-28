@@ -1,0 +1,164 @@
+###Mixing Strings####
+
+Heisenberg is very fond of mixing various strings together. But he has storage problem. He wants that his strings use as less space as possible.
+
+He has N strings right now. He wants to store them together. To reduce space he can use this property of mixing two strings:
+
+Suppose he has string A="abcdef" and B="cdefghi". He can mix them to form "abcdefghi".
+
+So, two strings can be mixed if some substring at the end of A is also at the starting of B which are mixed together.
+
+Given the list of strings he has right now, print the minimum final characters he can get if he can mix any number of times, any of the given strings or the intermediate strings.
+
+Input Format::
+First line contains N, the number of strings. Next N line contains, one string per line.
+
+Constraints
+None
+
+Output Format::
+Print in one line the minimum final characters he can get if he can mix any number of times, any of the given strings or the intermediate strings.
+
+Sample Input 0::
+2
+abcdef
+fghi
+
+Sample Output 0
+9
+
+Sample Input 1
+8
+
+wlrbbmqbhcdarz
+wk
+yhiddqsc
+xrjmowfrxsjybl
+befsarc
+ynecdyggx
+p
+lorellnmpapqfwk
+
+Sample Output 1
+66
+
+Sample Input 2
+8
+aaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaa
+
+Sample Output 2::
+15
+
+Sample Input 3::
+8
+aaaaaaaaaaaaaal
+babcdefabcdefal
+caaaaaaaaaaaaal
+dabcdefabcdefal
+eaaaaaaaaaaaaal
+fabcdefabcdefal
+gaaaaaaaaaaaaal
+hbabcdefabcdefl
+
+Sample Output 3::
+120
+
+Sample Input 4::
+8
+calhlbshjhgitxa
+cdpsbsckkqeurhx
+wlzkvklnuuucdqb
+fshuninpuzhauyj
+twvsgqesfymbcrr
+ewmltzviqphxsbv
+bwryoaqvsvvgxyy
+ocwcnpbizrzhqrk
+
+Sample Output 4::
+119
+
+Sample Input 5::
+8
+abcdefghijklmno
+jklmnopqrstuvwx
+klmnopqrstuvwxy
+wxyzabcdefghijk
+efghijklmnopqrs
+stuvwxyzabcdeag
+stuvwxyzabcdeag
+bcdeagasdflasdf
+
+Sample Output 5::
+46
+
+Sample Input 6::
+8
+fiwmdahtkwyvkib
+h
+etlswo
+wrui
+gn
+ebpeii
+eioosp
+afxtsr
+
+Sample Output 6::
+46
+
+Sample Input 7::
+8
+mesirixkw
+bjikjvwtcjbn
+azzyjyi
+mmdwfnurjdstne
+ibzmkazxcb
+amykxmxcjepfwyi
+tv
+zg
+Sample Output 7
+
+69
+
+
+
+
+###solution###
+
+n=int(input())
+st=[]
+for i in range(n):
+    a=input()
+    st.append(a)
+#print(st)
+
+xt=[]
+at=st[0]
+for i in at:
+    xt.append(i)
+#print(xt)
+
+n=at[-1]
+#print(n)
+
+for i in range(1,len(st)):
+    yt=st[i]
+    if str(n)==str(yt[0]):
+        rt=list(yt)
+        for l in range(len(rt)):
+           zt=rt[l]
+           if zt in xt:
+                l+=1
+           else:
+                xt.append(zt)
+        #print(xt)
+    else:
+        for j in range(len(yt)):
+            xt.append(yt[j])
+print(len(xt))

@@ -1,0 +1,98 @@
+####Find and Count Hashtags###
+
+Input Format::
+First line of the input will contain N denoting the number of tweets. Next N lines, each will contain a string S.
+
+Constraints::
+where S denotes length of string S i.e. length of tweet. Any hashtag denoted by H, where H denotes length of any hashtag H.
+
+Output Format::
+Print the top five trending hashtags. In case of tie between any two hashtags, print them in lexicographical order in a new line.
+
+Sample Input::
+
+10
+Donald Trump becomes the 45th #US President
+Potentially habitable exoplanet #ProximaB discovered
+#RogerFederer wins #US Open for 5th time
+#GravitationalWaves detection successful
+Traces of liquid water discovered on #Mars
+Life Could Survive on Exoplanet #ProximaB
+Go go #RogerFederer
+Ten ways #ProximaB is different from Earth
+ISRO becomes 4th space agency to reach #Mars
+#RogerFederer beats #Nadal
+
+Sample Output ::
+
+#ProximaB
+#RogerFederer
+#Mars
+#US
+#GravitationalWaves
+
+Explanation::
+In the given sample test case, the count of occurrences of all the hashtags are:
+
+US: 2
+Mars: 2
+RogerFederer: 3
+ProximaB: 3
+Nadal: 1
+GravitationalWaves: 1
+Sort them by count and in case of tie in count we sort them in lexicographical order of hashtag. It means that Since #RogerFederer and #ProximaB has equal count, we compare the strings and since #ProximaB is lexicographically smaller than #RogerFederer, #ProximaB will have precedence over #RogerFederer.
+
+Final sorted order is:
+
+ProximaB: 3
+RogerFederer: 3
+Mars: 2
+US: 2
+GravitationalWaves: 1
+Nadal: 1
+Top 5 hashtags from the above list is the correct output.
+
+
+
+####SOLUTION ###
+from collections import Counter
+n=int(input())
+num=[]
+for i in range(n):
+    n1=input()
+    num.append(n1)
+#print(num)
+
+txt=[]
+for j in range(len(num)):
+    p=num[j]
+    x=p.split(" ")
+    txt.append(x)
+#print(txt)
+
+pot=[]
+for k in range(len(txt)):
+    v=txt[k]
+    for l in range(len(v)):
+        m=v[l]
+        if m[0]=='#':
+           pot.append(m)
+#print(pot)
+
+k=Counter(pot)
+t=dict(k)
+d={}
+for k,v in t.items():
+    if v not in d:
+        d[v]=[]
+    d[v].append(k)
+#print(d)
+
+op=[]
+for k in sorted(d,reverse=True):
+    for v in sorted(d[k]):
+        op.append(v)
+#print(op)
+
+z=op[0:5]
+print(*z,sep="\n")

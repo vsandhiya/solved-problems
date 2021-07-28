@@ -1,0 +1,30 @@
+####Obtain the domain name from the url
+
+Sample Input 0
+http://www.google.com
+
+Sample Output 0
+google.com
+
+ans :::
+
+text=input()
+s=text.split(".")
+s.pop(0)
+print(s[0]+"."+s[1])
+
+
+####To make a full url from a string
+
+
+Sample Input 1
+www#youtube#com#watch#python-tutorial
+
+Sample Output 1
+https://www.youtube.com/watch/python-tutorial/
+
+ans:: 
+
+text=input()
+s=text.split('#')
+print("https://"+s[0]+"."+s[1]+"."+s[2]+"/"+s[3]+"/"+s[4]+"/")

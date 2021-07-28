@@ -1,0 +1,53 @@
+####Determining numbers###
+
+Input Format ::
+First line: Integer denoting the number of elements in the array Second line: space-separated integers denoting the values in the array
+
+Constraints
+None
+
+Output Format::
+Print two space-separated integers that occur once in the array in ascending order.
+
+Sample Input 0::
+8
+1 2 3 4 5 5 3 4
+
+Sample Output 0::
+1 2
+
+Explanation 0::
+The numbers other than 1 and 2 occur twice, hence, the answer is 1 and 2.
+
+Sample Input 1::
+2
+910 958
+
+Sample Output 1::
+910 958 
+
+Sample Input 2::
+2
+1000 2
+
+Sample Output 2::
+2 1000
+
+Sample Input 3
+34
+3539 3539 3747 3747 5308 5308 1100 1100 2599 2599 3230 3230 2637 2637 5884 5884 8011 8011 9132 9132 1595 1595 1391 1391 1292 1292 9423 9423 6097 6097 4264 4264 9880 2132
+Sample Output 3
+2132 9880 
+
+
+###Solution##
+
+n=input()
+num=list(map(int,input().strip().split()))
+t=[]
+for x in num:
+     v=num.count(x)
+     if v==1:
+        t.append(x)     
+d=sorted(t)
+print(*d)
